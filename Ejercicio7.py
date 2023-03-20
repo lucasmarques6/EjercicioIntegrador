@@ -38,19 +38,63 @@ class Persona():
         else: 
             print("Ingrese un numero")
 
-
-
-def mostrar(self, Persona):
-    return f'Nombre: {self.__nombre} , {self.__edad} años, DNI: {self.__dni}'
+    def mostrar(self):
+        print (f'Nombre: {self.__nombre} , {self.__edad} años, DNI: {self.__dni}')
     
-def es_mayor_de_edad(self, Persona):
-    if Persona >= 18:
-        print('Es mayor de edad')
-    else:
-        print('Es menor de edad')
+    def es_mayor_de_edad(self):
+        if self.__edad >= 18:
+            print('Es mayor de edad')
+        else:
+             print('Es menor de edad')
+
+
+class Cuenta():
+    def __init__(self, persona, cantidad) -> None:
+        self.__titular = persona
+        self.__cantidad = cantidad
+
+    @property
+    def titular(self) -> Persona:
+        return self.__titular
+    @titular.setter
+    def titular(self, nueva_persona):
+        self.__titular = nueva_persona
+
+    @property
+    def cantidad(self):
+        return self.__cantidad
+    @cantidad.setter
+    def edad(self, nueva_cantidad):
+        if nueva_cantidad != 0:
+            self.__cantidad = nueva_cantidad
+        else: 
+            print("Se debe ingresar una cantidad")
+
+    
+
+    def mostrar(self):
+        print (f'Nombre: {self.__nombre} , {self.__cantidad} pesos')
+
+    def ingresar(self, ingresar_cantidad):
+        if ingresar_cantidad < 0:
+            print("Ingrese una cantidad positiva")
+        else:
+            self.cantidad += ingresar_cantidad
+    
+    def retirar(self, retirar_cantidad):
+        self.cantidad -= retirar_cantidad
+
+    
+
+    
+    
+        
+
+
+
 
 
 nueva_persona = Persona ('lucas',42,36677488)
 print(nueva_persona)
-mostrar(nueva_persona)
-es_mayor_de_edad(nueva_persona)
+nueva_persona.mostrar()
+nueva_persona.es_mayor_de_edad()
