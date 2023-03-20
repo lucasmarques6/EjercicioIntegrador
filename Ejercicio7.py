@@ -1,3 +1,4 @@
+#Ejercicio 6
 class Persona():
     def __init__(self, nombre, edad, dni):
         self.__nombre = nombre
@@ -47,7 +48,7 @@ class Persona():
         else:
              print('Es menor de edad')
 
-
+#Ejercicio 7
 class Cuenta():
     def __init__(self, persona, cantidad) -> None:
         self.__titular = persona
@@ -64,7 +65,7 @@ class Cuenta():
     def cantidad(self):
         return self.__cantidad
     @cantidad.setter
-    def edad(self, nueva_cantidad):
+    def cantidad(self, nueva_cantidad):
         if nueva_cantidad != 0:
             self.__cantidad = nueva_cantidad
         else: 
@@ -84,11 +85,29 @@ class Cuenta():
     def retirar(self, retirar_cantidad):
         self.cantidad -= retirar_cantidad
 
+#Ejercicio 8
+class CuentaJoven(Cuenta):
+    def __init__(self, persona, cantidad, bonificacion) -> None:
+        super().__init__(persona, cantidad)   
+        self.__bonificacion = bonificacion
     
+    @property
+    def bonificacion(self, porcentaje_nuevo):
+        return self.__bonificacion
+    @bonificacion.setter
+    def bonificacion(self, porcentaje_nuevo):
+        self.__bonificacion = porcentaje_nuevo
 
     
-    
-        
+    def es_titular_valido():
+        if Persona.edad >= 18 and Persona.edad < 25:
+            return True
+    def retirar(self, retirar_cantidad):
+        if CuentaJoven.es_titular_valido() == True:
+            return super().retirar(retirar_cantidad)   
+
+    def mostrarCJ(self):
+        return  print (f'Cuenta Joven. Bonificacion {self.__bonificacion}  %')
 
 
 
